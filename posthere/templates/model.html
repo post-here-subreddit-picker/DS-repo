@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Post Here - {{ title }}</title>
+    <link rel="stylesheet" href="https://unpkg.com/picnic"/>
+  </head>
+  <body>
+    <nav>
+      <a href="/" class="brand"><span>Home</span></a>
+    </nav>
+
+    <article class="SearchBar" style="padding: 3em 1em;max-width: 800px; margin: auto;">
+      <div style="justify-content: center;">
+        <h2 style="text-align: center;">Post Here</h2>
+        <!-- {% for user in users %}
+        <a href="/user/{{ user.name }}"><span class="stack">{{ user.name }}</span></a>
+        {% endfor %} -->
+        <form action="#" method="post" style="align-content: center;width: 800px;">
+          <input type="text" name="Title" placeholder="Subreddit Title">
+          <textarea type="text" name="Content" placeholder="Post here!" style="height: 300px;"></textarea>
+          <input type="submit" value="Search" style="float: right; background-color: rgb(255, 112, 45);">
+        </form>
+      </div>
+    </article>
+
+  </body>
+</html>
