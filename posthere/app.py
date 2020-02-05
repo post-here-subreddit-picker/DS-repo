@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-# from flask_sqlalchemy import SQLAlchemy
 import pickle
 
 
@@ -7,11 +6,7 @@ import pickle
 def create_app():
     app = Flask(__name__)
     model = pickle.load(open('posthere/model2.pkl', 'rb'))
-    # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///rpg_db.sqlite3'
-    # app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=True
-
-    # db = SQLAlchemy(app)
-
+   
 
     @app.route('/')
     def hello():
@@ -28,9 +23,7 @@ def create_app():
             was missing in the request.''')
         else:
             prediction = model.predict([title])[0]
-            message = 'You want to post this here! {}'.format(prediction)
-            return render_template('base.html', message=message, prediction=prediction)
-
+            return str(prediction)
 
     
     return app
