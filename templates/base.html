@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Appraiser-BFF</title>
+  <link rel="stylesheet" href="https://unpkg.com/picnic"/>
+</head>
+
+<body>
+    {% for key, value in features %}
+    <p>{{ key }}: {{ value }}</p>
+    {% endfor %}
+    <h2>You should post here! {{ "{:,.0f}".format(predict) }}</h2>
+</body>
+</html>

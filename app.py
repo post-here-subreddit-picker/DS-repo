@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
+from . import predictions
 # from flask_sqlalchemy import SQLAlchemy
-# from forms import SignUpForm
 
 
 
@@ -17,14 +17,19 @@ def create_app():
         return render_template('home.html', title='Home')
 
 
-    @app.route('/model', methods=["POST", "GET"])
-        # def search():
-        # title = request.values['title']
-        # self_text = request.values['selftext']
-        # prediction = predict(title, self_text)
-        #     message = 'You want to post this here! {}'.format(prediction)
-    def model():
-        return "Hello world."
+    @app.route('/model')
+    def prediction():
+        try:
+            title = request.args['title']
+        except KeyError:
+            return ('''Bad request: one of the required values 
+            was missing in the request.''')
+        else:
+            inputs = [str(values) for values in title]
+            predict = predictions.jayden(inputs)
+            message = 'You want to post this here! {}'.format(prediction)
+            return render_template('base.html', message=message, predict=predict)
+
 
     
     return app
