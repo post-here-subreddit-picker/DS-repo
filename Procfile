@@ -1,1 +1,1 @@
-web: gunicorn -w 4 posthere:APP
+web: gunicorn posthere:APP
